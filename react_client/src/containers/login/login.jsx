@@ -42,7 +42,7 @@ export default class Register extends Component {
                        onChange={value => this.handleChange('password', value)}>密&nbsp;&nbsp;&nbsp;码:</InputItem>
             <WhiteSpace/>
             <Button type="primary" onClick={this.login}>注&nbsp;&nbsp;&nbsp;册</Button>
-            <Button onClick={this.toRegister}>已有账户</Button>
+            <Button onClick={this.toRegister}>未有账户</Button>
           </List>
         </WingBlank>
       </div>
