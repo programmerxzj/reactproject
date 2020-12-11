@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MongoConfiguration">
+    <option name="serverConfigurations">
+      <list>
+        <ServerConfiguration>
+          <option name="serverUrls">
+            <list>
+              <option value="localhost:27017" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+          <option name="userDatabase" value="react_server" />
+        </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="serverUrls">
+            <list>
+              <option value="localhost:27017" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+          <option name="userDatabase" value="react_server" />
+        </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="serverUrls">
+            <list>
+              <option value="localhost:27017" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+          <option name="userDatabase" value="react_server" />
+        </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="serverUrls">
+            <list>
+              <option value="localhost:27017" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+          <option name="userDatabase" value="react_server" />
+        </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="serverUrls">
+            <list>
+              <option value="localhost:27017" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+          <option name="userDatabase" value="react_server" />
+        </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="serverUrls">
+            <list>
+              <option value="localhost:27017" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+          <option name="userDatabase" value="react_server" />
+        </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="serverUrls">
+            <list>
+              <option value="localhost:27017" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+          <option name="userDatabase" value="react_server" />
+        </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="serverUrls">
+            <list>
+              <option value="localhost:27017" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+          <option name="userDatabase" value="react_server" />
+        </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="serverUrls">
+            <list>
+              <option value="localhost:27017" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+          <option name="userDatabase" value="react_server" />
+        </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="label" value="react" />
+          <option name="serverUrls">
+            <list>
+              <option value="localhost:27017" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+          <option name="userDatabase" value="react_server" />
+        </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="serverUrls">
+            <list>
+              <option value="localhost:27017" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+          <option name="userDatabase" value="react_server" />
+        </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="serverUrls">
+            <list>
+              <option value="localhost:27017" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+          <option name="userDatabase" value="react_server_test" />
+        </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="serverUrls">
+            <list>
+              <option value="localhost:27017" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+          <option name="userDatabase" value="react_server" />
+        </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="serverUrls">
+            <list>
+              <option value="localhost:27017" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+          <option name="userDatabase" value="react_server" />
+        </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="serverUrls">
+            <list>
+              <option value="localhost:27017" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+          <option name="userDatabase" value="react_server" />
+        </ServerConfiguration>
+      </list>
+    </option>
+  </component>
+</project>
