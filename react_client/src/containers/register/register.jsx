@@ -8,12 +8,15 @@ import {
   WhiteSpace,
   Radio
 } from 'antd-mobile'
+import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
 
 import Logo from '../../components/logo/logo'
+import {register} from '../../redux/actions'
 
 const ListItem = List.Item
 
-export default class Register extends Component {
+class Register extends Component {
   state = {
     username: '',
     password: '',
@@ -31,15 +34,22 @@ export default class Register extends Component {
     this.props.history.replace('/login')
   }
   register = () => {
-    console.log(this.state);
+    // console.log(this.state);
+    this.props.register(this.state)
   }
 
   render() {
+    // const {type} = this.state
+    const {redirectTo, msg} = this.props.user
+    if (redirectTo) {
+      return <Redirect to={redirectTo}/>
+    }
     return (
       <div>
         <NavBar>职&nbsp;位&nbsp;招&nbsp;聘</NavBar>
         <Logo/>
         <WingBlank>
+          {msg ? <p className='error-msg'>{msg}</p> : null}
           <List>
             <InputItem placeholder='输入用户名' onChange={value => this.handleChange('username', value)}>用户名:</InputItem>
             <WhiteSpace/>
@@ -69,3 +79,8 @@ export default class Register extends Component {
     )
   }
 }
+
+export default connect(
+  state => ({user: state.user}),
+  {register}
+)(Register)

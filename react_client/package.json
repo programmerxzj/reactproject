@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "antd-mobile": "^2.3.4",
+    "axios": "^0.21.0",
+    "prop-types": "^15.7.2",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
@@ -25,5 +27,6 @@
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject",
     "client": "serve build"
-  }
+  },
+  "proxy": "http://localhost:4001"
 }
