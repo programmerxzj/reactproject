@@ -5,8 +5,10 @@
 import ajax from './ajax'
 
 //用户注册
-export const reqRegister=(user)=>ajax('/register',user,"POST")
+export const reqRegister = (user) => ajax('/register', user, "POST")
 //用户登陆
-export const reqLogin=(user)=>ajax('/login',user,"POST")
+export const reqLogin = (user) => ajax('/login', user, "POST")
 //用户更新
-export const reqUpdateUser=(user)=>ajax('/update',user,"POST")
+export const reqUpdateUser = (user) => ajax('/update', user, "POST")
+//获取用户信息
+export const reqUser = () => ajax('/user')
