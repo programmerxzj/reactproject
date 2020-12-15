@@ -14,7 +14,7 @@ import Register from "./containers/register/register";
 
 import './assets/css/index.less'
 
-import './test/socketio_test'
+// import './test/socketio_test'
 
 ReactDOM.render((
     <Provider store={store}>

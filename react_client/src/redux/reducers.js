@@ -5,7 +5,10 @@ import {
   ERROR_MSG,
   RESET_USER,
   RECEIVE_USER,
-  RECEIVE_USER_LIST
+  RECEIVE_USER_LIST,
+  RECEIVE_MSG,
+  RECEIVE_MSG_LIST,
+  MSG_READ
 } from './action-types'
 
 import {getRedirectTo} from '../utils'
@@ -34,10 +37,11 @@ function user(state = initUser, action) {
   }
 }
 
-const initUserList=[]
+const initUserList = []
+
 //产生userList的reduce
 
-function userList(state=initUserList,action) {
+function userList(state = initUserList, action) {
   switch (action.type) {
     case RECEIVE_USER_LIST:
       return action.data
@@ -46,9 +50,33 @@ function userList(state=initUserList,action) {
   }
 }
 
+
+const initChat = {
+  users: {}, // 所有用户信息的对象
+  chatMsgs: [], // 当前用户所有相关msg的数组
+  unReadCount: 0 // 未读数量
+}
+//产生聊天状态的reducer
+function chat(state = initChat, action) {
+  switch (action.type) {
+    case RECEIVE_MSG_LIST:
+      const {users,chatMsgs}=action.data
+      return  {
+        users,
+        chatMsgs,
+        unReadCount: 0
+      }
+    case RECEIVE_MSG:
+      return
+    default:
+      return state
+  }
+}
+
 export default combineReducers({
   user,
-  userList
+  userList,
+  chat
 })
 
 
