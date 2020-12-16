@@ -56,18 +56,24 @@ const initChat = {
   chatMsgs: [], // 当前用户所有相关msg的数组
   unReadCount: 0 // 未读数量
 }
+
 //产生聊天状态的reducer
 function chat(state = initChat, action) {
   switch (action.type) {
     case RECEIVE_MSG_LIST:
-      const {users,chatMsgs}=action.data
-      return  {
+      const {users, chatMsgs, userid} = action.data
+      return {
         users,
         chatMsgs,
-        unReadCount: 0
+        unReadCount: chatMsgs.reduce((preTotal, msg) => preTotal + (!msg.read && msg.to === userid ? 1 : 0), 0)
       }
     case RECEIVE_MSG:
-      return
+      const {chatMsg} = action.data
+      return {
+        users: state.users,
+        chatMsgs: [...state.chatMsgs, chatMsg],
+        unReadCount: state.unReadCount + (!chatMsg.read && chatMsg.to === action.data.userid ? 1 : 0)
+      }
     default:
       return state
   }

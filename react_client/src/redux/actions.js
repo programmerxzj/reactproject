@@ -22,26 +22,30 @@ import {
 
 import io from 'socket.io-client'
 
-function initIO() {
+function initIO(dispatch, userid) {
   if (!io.socket) {
 // 连接服务器, 得到与服务器的连接对象
     io.socket = io('ws://localhost:4001')
     // 绑定监听, 接收服务器发送的消息
     io.socket.on('receiveMsg', function (chatMsg) {
       console.log('客户端接收服务器发送的消息', chatMsg)
+
+      if (userid === chatMsg.from || userid === chatMsg.to) {
+        dispatch(receiveMsg(chatMsg, userid))
+      }
     })
   }
 }
 
 // 异步获取消息列表数据
-async function getMsgList(dispatch) {
-  initIO(dispatch)
+async function getMsgList(dispatch, userid) {
+  initIO(dispatch, userid)
   const response = await reqChatMsgList()
   const result = response.data
   if (result.code === 0) {
     const {users, chatMsgs} = result.data
     // 分发同步action
-    dispatch(receiveMsgList({users, chatMsgs}))
+    dispatch(receiveMsgList({users, chatMsgs, userid}))
   }
 }
 
@@ -72,10 +76,10 @@ export const resetUser = (msg) => ({type: RESET_USER, data: msg})
 export const receiveUserList = (userList) => ({type: RECEIVE_USER_LIST, data: userList})
 
 // 接收消息列表的同步action
-const receiveMsgList = ({users, chatMsgs}) => ({type: RECEIVE_MSG_LIST, data: {users, chatMsgs}})
+const receiveMsgList = ({users, chatMsgs,userid}) => ({type: RECEIVE_MSG_LIST, data: {users, chatMsgs,userid}})
 
 // 接收一个消息的同步action
-const receiveMsg = (chatMsg) => ({type: RECEIVE_MSG, data: {chatMsg}})
+const receiveMsg = (chatMsg, userid) => ({type: RECEIVE_MSG, data: {chatMsg, userid}})
 
 //注册异步action
 export const register = (user) => {
@@ -93,7 +97,7 @@ export const register = (user) => {
     const response = await reqRegister({username, password, type})
     const result = response.data
     if (result.code === 0) {//成功
-      getMsgList(dispatch)
+      getMsgList(dispatch, result.data._id)
       dispatch(anthSuccess(result.data))
     } else {//失败
       dispatch(errorMsg(result.msg))
@@ -114,7 +118,7 @@ export const login = (user) => {
     const response = await reqLogin(user)
     const result = response.data
     if (result.code === 0) {//成功
-      getMsgList(dispatch)
+      getMsgList(dispatch, result.data._id)
       dispatch(anthSuccess(result.data))
     } else {//失败
       dispatch(errorMsg(result.msg))
@@ -141,7 +145,7 @@ export const getUser = () => {
     const response = await reqUser()
     const result = response.data
     if (result.code === 0) {
-      getMsgList(dispatch)
+      getMsgList(dispatch, result.data._id)
       dispatch(receiveUser(result.data))
     } else {
       dispatch(resetUser(result.msg))

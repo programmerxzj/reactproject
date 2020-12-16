@@ -8,11 +8,12 @@ const Item = TabBar.Item
 
 class NavFooter extends Component {
   static propTypes = {
-    navList: PropTypes.array.isRequired
+    navList: PropTypes.array.isRequired,
+    unReadCount: PropTypes.number.isRequired
   }
 
   render() {
-    let {navList} = this.props
+    let {navList,unReadCount} = this.props
     //过滤hide为true的数组
     navList = navList.filter(nav => !nav.hide)
     const path = this.props.location.pathname
@@ -21,6 +22,7 @@ class NavFooter extends Component {
         {
           navList.map((nav) => (
             <Item key={nav.path}
+                  badge={nav.path === '/message' ? unReadCount : 0}
                   title={nav.text}
                   icon={{uri: require(`./imgs/${nav.icon}.png`)}}
                   selectedIcon={{uri: require(`./imgs/${nav.icon}-selected.png`)}}
