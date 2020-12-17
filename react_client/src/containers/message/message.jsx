@@ -4,6 +4,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {List, Badge} from 'antd-mobile'
+import QueueAnim from 'rc-queue-anim'
 
 const Item = List.Item
 const Brief = Item.Brief
@@ -56,26 +57,29 @@ class Message extends Component {
 
     return (
       <List style={{marginTop: 50, marginBottom: 50}}>
-        {
-          lastMsgs.map(msg => {
-            // 得到目标用户的id
-            const targetUserId = msg.to === user._id ? msg.from : msg.to
-            // 得到目标用户的信息
-            const targetUser = users[targetUserId]
-            return (
-              <Item
-                key={msg._id}
-                extra={<Badge text={msg.unReadCount}/>}
-                thumb={targetUser.header ? require(`../../assets/images/${targetUser.header}.png`) : null}
-                arrow='horizontal'
-                onClick={() => this.props.history.push(`/chat/${targetUserId}`)}
-              >
-                {msg.content}
-                <Brief>{targetUser.username}</Brief>
-              </Item>
-            )
-          })
-        }
+        <QueueAnim type='left' delay={100}>
+          {
+            lastMsgs.map(msg => {
+              // 得到目标用户的id
+              const targetUserId = msg.to === user._id ? msg.from : msg.to
+              // 得到目标用户的信息
+              const targetUser = users[targetUserId]
+              return (
+                <Item
+                  key={msg._id}
+                  extra={<Badge text={msg.unReadCount}/>}
+                  thumb={targetUser.header ? require(`../../assets/images/${targetUser.header}.png`) : null}
+                  arrow='horizontal'
+                  onClick={() => this.props.history.push(`/chat/${targetUserId}`)}
+                >
+                  {msg.content}
+                  <Brief>{targetUser.username}</Brief>
+                </Item>
+              )
+            })
+          }
+        </QueueAnim>
+
       </List>
     )
   }
